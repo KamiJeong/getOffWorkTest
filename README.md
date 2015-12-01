@@ -1,4 +1,4 @@
-# getOffWorkTest
+# Get Off Work Team Test Place
 (말만)정시퇴근 팀의 테스트 장소입니다.
 
 생성자 : 정 종 훈
