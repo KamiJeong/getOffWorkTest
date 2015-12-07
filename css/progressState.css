@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+body {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .6);
+	font-family: 'bon', sans-serif;
+}
+.kse_bgColorGray {
+	background-color: #efefef;
+}
+.kse_border {
+	border: 1px solid #d9d9d9;
+}
+.kse_borderTop {
+	border-top: 1px solid #d9d9d9;
+}
+.kse_borderRight {
+	border-right: 1px solid #d9d9d9;
+}
+.kse_borderBottom {
+	border-bottom: 1px solid #d9d9d9;
+}
+.kse_borderLeft {
+	border-left: 1px solid #d9d9d9;
+}

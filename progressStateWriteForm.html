@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>진행 상황 작성</title>
+		<!-- Material Design Lite css & icons -->
+		<link rel="stylesheet" href="css/material.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<!-- progressState CSS -->
+		<link rel="stylesheet" href="css/progressState.css" />
+		<style>
+			.kse_photoBox {
+				background: #fff;
+				overflow: hidden;
+				position: relative;
+			}
+			.kse_photo {
+				width: 100px;
+				height: 80px;
+				padding: 20px;
+				background-image: url("img/icon/mountain35.png");
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+			}
+			.kse_photoInput {
+				background: red;
+				cursor: pointer;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+			}
+			.kse_messageBox {
+				color: #fff;
+				background: #ff5252;
+				margin: 5%;
+				border-radius: 0 5px 5px 5px;
+				position: relative;
+			}
+			.kse_messageBox::before {
+				content: "";
+				display: block;
+				width: 0;
+				height: 0;
+				border-left: 10px solid transparent;
+				border-top: 10px solid #ff5252;
+				position: absolute;
+				left: -10px;
+			}
+			.kse_rank {
+				width: 30px;
+				height: 30px;
+				background: #FFCCB9;
+				color: #FF5252;
+				text-align: center;
+				line-height: 30px;
+				border-radius: 15px;
+			}
+			/* 유저 리스트 */
+			.kse_users img {
+				cursor: pointer;
+			}
+			.kse_users img:hover {
+				box-shadow: 0 0 8px #009688;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Always shows a header, even in smaller screens. -->
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+			<!-- Main Contents -->
+			<main class="mdl-layout__content">
+				<div class="page-content">
+					<!-- Your content goes here -->
+					<div class="mdl-grid" style="margin: 5% 10%">
+
+						<div class="mdl-cell mdl-cell--12-col mdl-shadow--2dp"
+						style="background: #142830; border-radius: 15px; overflow: hidden;">
+							<div class="mdl-grid">
+								<span class="mdl-color-text--white mdl-typography--font-bold mdl-cell--11-col mdl-cell--5-col-tablet mdl-cell--3-col-phone"
+								style="margin: 2px 0 0 20px; font-size: 17px;">프로젝트 진행 상황 등록</span>
+								<span class="mdl-cell--1-col mdl-cell--1-col-tablet mdl-cell--1-col-phone" style="text-align: right;"> <a href="" class="mdl-color-text--white" style="margin-left:15px; font-size:22px;"> <i class="fa fa-times"></i> </a> </span>
+							</div>
+
+							<div class="mdl-grid mdl-grid--no-spacing mdl-color--white mdl-shadow--2dp">
+								<div class="mdl-cell--8-col">
+									<div class="mdl-cell mdl-cell--12-col kse_bgColorGray kse_border mdl-shadow--2dp">
+										<div class="mdl-grid mdl-color--grey-300 kse_borderBottom">
+											<span class="mdl-color-text--grey-800 mdl-typography--font-bold" style="font-size: 17px;">사진 등록</span>
+										</div>
+										<div class="mdl-grid mdl-color-text--grey-700 mdl-typography--font-bold">
+											최대 4장까지 등록 가능
+										</div>
+										<div class="mdl-grid mdl-cell--12-col">
+											<div class="kse_photoBox mdl-cell mdl-cell--3-col mdl-shadow--2dp kse_photo">
+												<!-- <div class="kse_photo"> -->
+													<i class="fa fa-plus"></i>
+												<!-- </div> -->
+												<input class="kse_photoInput" type="file" name="photo" accept="image/*"/>
+											</div>
+											<div class="kse_photoBox mdl-cell mdl-cell--3-col mdl-shadow--2dp">
+												<div class="kse_photo">
+													<i class="fa fa-plus"></i>
+												</div>
+												<input class="kse_photoInput" type="file" name="photo" accept="image/*"/>
+											</div>
+											<div class="kse_photoBox mdl-cell mdl-cell--3-col mdl-shadow--2dp">
+												<div class="kse_photo">
+													<i class="fa fa-plus"></i>
+												</div>
+												<input class="kse_photoInput" type="file" name="photo" accept="image/*"/>
+											</div>
+											<div class="kse_photoBox mdl-cell mdl-cell--3-col mdl-shadow--2dp">
+												<div class="kse_photo">
+													<i class="fa fa-plus"></i>
+												</div>
+												<input class="kse_photoInput" type="file" name="photo" accept="image/*"/>
+											</div>
+										</div>
+									</div>
+									<div class="mdl-cell mdl-cell--12-col kse_bgColorGray kse_border mdl-shadow--2dp">
+										<div class="mdl-grid mdl-color--grey-300 kse_borderBottom">
+											<span class="mdl-color-text--grey-800 mdl-typography--font-bold" style="font-size: 17px">진행 상황 설명</span>
+										</div>
+										<div class="mdl-grid mdl-cell--12-col mdl-grid--no-spacing">
+											<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield">
+												<label class="mdl-textfield__label" for="explanation">진행 상황 전달 메세지를 입력하세요.</label>
+												<textarea class="mdl-textfield__input mdl-color--white" type="text" id="explanation" rows="5"></textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="mdl-cell--4-col mdl-color--white">
+									<!-- 진행상황 작성 공간(선택한 유저가 없을 때)-->
+									<div class="mdl-cell mdl-cell--12-col kse_bgColorGray kse_border mdl-shadow--2dp">
+										<div class="mdl-grid mdl-grid--no-spacing">
+											<!-- 메세지 공간 -->
+											<div class="mdl-cell--12-col mdl-typography--text-center">
+												<p class="mdl-cell mdl-cell--12-col mdl-color-text--grey-600 mdl-typography--font-bold">
+													진행상황을 전송할 참여 회원을 골라주세요!
+												</p>
+											</div>
+											<div class="mdl-cell--12-col">
+												<div class="mdl-grid mdl-grid--no-spacing mdl-cell--12-col mdl-color--yellow">
+													<div class="mdl-cell mdl-cell--6-col mdl-color--grey-300 kse_borderRightx">
+														<div class="mdl-grid mdl-grid--no-spacing mdl-color-text--grey-500">
+															<span>총 참여회원수</span>
+														</div>
+														<div class="mdl-grid mdl-grid--no-spacing mdl-color--white mdl-typography--font-bold">
+															<span>6</span>
+														</div>
+													</div>
+													<div class="mdl-cell mdl-cell--6-col mdl-color--grey-300">
+														<div class="mdl-grid mdl-grid--no-spacing mdl-color-text--grey-500">
+															<span>선택한 회원수</span>
+														</div>
+														<div class="mdl-grid mdl-grid--no-spacing mdl-color--white mdl-typography--font-bold" style="color:#FF5252">
+															<span>1</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 진행상황 작성 공간(선택한 유저가 있을 때) -->
+									<div class="mdl-cell mdl-cell--12-col mdl-shadow--2dp kse_border">
+										<div class="mdl-grid mdl-grid--no-spacing kse_bgColorGray">
+											<!-- 프로필 -->
+											<div class="mdl-cell--3-col">
+												<!-- 사진 -->
+												<div class="mdl-cell mdl-cell--12-col mdl-shadow--2dp" style="border-radius: 50%; overflow: hidden;">
+													<img src="img/profile/1.jpg" alt="" width="100%">
+												</div>
+												<div class="mdl-cell mdl-cell--12-col mdl-typography--text-center">
+													<span class="mdl-color-text--grey-700 mdl-typography--font-bold" style="font-size: 15px; text-shadow: 1px 1px 2px #BDBDBD">상으니</span>
+												</div>
+											</div>
+											<!-- 메세지 공간 -->
+											<div class="mdl-cell--9-col">
+												<div class="mdl-grid mdl-grid--no-spacing">
+													<div class="kse_messageBox mdl-shadow--2dp">
+														<p class="mdl-cell mdl-cell--12-col">
+															귀여운 장식품을 달아주세요~!!
+														</p>
+													</div>
+												</div>
+												<div class="mdl-grid mdl-cell--12-col mdl-grid--no-spacing kse_bgColorGray mdl-typography--font-bold">
+													<div class="kse_rank mdl-cell mdl-cell--3-col mdl-shadow--2dp kse_rank">
+														1위
+													</div>
+													<div class="mdl-cell mdl-cell--9-col mdl-typography--text-center">
+														<span class="mdl-color-text--grey-600" style="line-height: 30px;">마감일 : 2015-12-04</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="mdl-grid mdl-color--white">
+									<div class="mdl-cell mdl-cell--12-col mdl-typography--text-center">
+										<button class="mdl-button mdl-button--raised mdl-button--primary mdl-js-button mdl-js-ripple-effect" style="margin:0 10px;">
+											진행상황 보내기
+										</button>
+										<button class="mdl-button mdl-button--raised mdl-button--primary mdl-js-button mdl-js-ripple-effect" style="margin:0 10px;">
+											취소
+										</button>
+									</div>
+								</div>
+								<!-- footer -->
+								<div class="mdl-grid mdl-cell--12-col" style="background: #142830; height:8px"></div>
+							</div>
+						</div>
+					</div><!--//content grid end -->
+				</div>
+			</main>
+		</div>
+		<!-- javascript -->
+		<!-- Material Design Lite javascript -->
+		<script src="js/material.min.js"></script>
+
+	</body>
+</html>

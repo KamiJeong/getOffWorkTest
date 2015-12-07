@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Material Test Page</title>
+    <!-- Material Design Lite css & icons -->
+    <link rel="stylesheet" href="css/material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+</head>
+<body>
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <!-- Header -->
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title (Logo or Title)-->
+            <span class="mdl-layout-title">Title</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <!-- 박스와 박스 사이에 공간을 둠으로써 자리 띄움 즉, 빈공간-->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <a class="mdl-navigation__link" href="">Link1</a>
+                <a class="mdl-navigation__link" href="">Link2</a>
+                <a class="mdl-navigation__link" href="">Link3</a>
+                <a class="mdl-navigation__link" href="">Link4</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Contents -->
+    <main class="mdl-layout__content mdl-color--grey-200">
+        <div class="page-content">
+            <!-- Your content goes here -->
+            <div class="mdl-grid mdl-layout-spacer"></div>
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--1-col mdl-shadow--2dp"></div>
+                <div class="mdl-cell mdl-cell--10-col mdl-color--yellow mdl-shadow--2dp">
+                    <img src="../img/test1.jpeg" alt="" width="300px" style="margin-left: 17%;">
+                </div>
+                <div class="mdl-grid">
+
+                </div>
+            </div>
+            <div class="mdl-grid mdl-grid--no-spacing mdl-color--white mdl-shadow--2dp">
+                <div class="mdl-cell--8-col mdl-color--red mdl-shadow--2dp">
+                    <div class="mdl-grid mdl-layout-spacer"></div>
+                    <div class="mdl-grid mdl-color--white">
+                        Test
+                    </div>
+                    <div class="mdl-grid mdl-layout-spacer"></div>
+                </div>
+                <div class="mdl-cell--4-col mdl-color--blue mdl-shadow--2dp">
+                    test2
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<!-- javascript -->
+<!-- Material Design Lite javascript -->
+<script src="js/material.min.js"></script>
+
+
+</body>
+</html>
